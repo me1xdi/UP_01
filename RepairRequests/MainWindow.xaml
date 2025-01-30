@@ -1,0 +1,22 @@
+﻿<Window x:Class="RepairRequests.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RepairRequests"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="900" Icon="Resources\icon.ico" Closing="Window_Closing">
+
+    <Grid Background="#D2F1F0">
+        <Frame x:Name="MainFrame" Source="Pages\RequestsPage.xaml" NavigationUIVisibility="Hidden" Background="#FFFFFF"  Grid.Row="1" Navigated="MainFrame_Navigated"  />
+        <Button x:Name ="BackButton" Content="Назад" Margin="10,5,0,5" VerticalAlignment="Center" ToolTip="Нажмите, чтобы вернуться назад" Click="BackButton_Click"  HorizontalAlignment="Left" />
+        <ComboBox x:Name="CbRole"  Margin="0,5,10,0" VerticalAlignment="Top" Width="210" HorizontalAlignment="Right" SelectionChanged="CbRole_SelectionChanged" >
+            <ComboBoxItem Content="Пользователь"/>
+            <ComboBoxItem Content="Менеджер"/>
+        </ComboBox>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+    </Grid>
+</Window>

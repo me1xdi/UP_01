@@ -1,0 +1,14 @@
+﻿<Page x:Class="RepairRequests.Pages.QRPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RepairRequests.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Оценка работы сервиса">
+    <Grid IsVisibleChanged="Grid_IsVisibleChanged">
+        <Label Content="Вы можете отсканировать QR-код, чтобы оставить отзыв" Width="580" Margin="0,40,155,0" Height="35" VerticalAlignment="Top" HorizontalAlignment="Right" />
+        <Image x:Name="qrImage" Margin="0,110,330,0" HorizontalAlignment="Right" Width="208" Height="208" VerticalAlignment="Top"/>
+    </Grid>
+</Page>

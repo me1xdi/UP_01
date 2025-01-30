@@ -1,0 +1,68 @@
+﻿<Page x:Class="RepairRequests.Pages.RequestsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RepairRequests.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="900"
+      Title="Заявки на ремонт">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="btAdd" Content="Добавить"  HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Click="btAdd_Click"  />
+        <Button x:Name="btDel" Content="Удалить" Margin="0,10,10,0" Grid.Row="1"  VerticalAlignment="Top" HorizontalAlignment="Right" Click="btDel_Click" />
+        <DataGrid x:Name="DataGridRequests" HorizontalAlignment="Left" Grid.Row="0" VerticalAlignment="Top" FontFamily="Monotype Corsiva" FontSize="16"   AutoGenerateColumns="False" IsReadOnly="True" IsVisibleChanged="DataGridRequests_IsVisibleChanged"  >
+        <DataGrid.Columns>
+            <DataGridTextColumn Header="Дата создания" Binding="{Binding dateOfCreation}" Width="95">
+                <DataGridTextColumn.ElementStyle>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="TextWrapping" Value="Wrap"/>
+                    </Style>
+                </DataGridTextColumn.ElementStyle>
+              </DataGridTextColumn>
+                <DataGridTextColumn Header="Клиент" Binding="{Binding Clients.fio}"  Width="80">
+                <DataGridTextColumn.ElementStyle>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="TextWrapping" Value="Wrap"/>
+                    </Style>
+                </DataGridTextColumn.ElementStyle>
+            </DataGridTextColumn>
+            <DataGridTextColumn Header="Оборудование" Binding="{Binding Equipment.title}" Width="100"/>
+            <DataGridTextColumn Header="Тип неисправности" Binding="{Binding TypeOfFault.title}" Width="120" >
+                <DataGridTextColumn.ElementStyle>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="TextWrapping" Value="Wrap"/>
+                    </Style>
+                </DataGridTextColumn.ElementStyle>
+            </DataGridTextColumn>
+                <DataGridTextColumn Header="Описание проблемы" Binding="{Binding problemDescription}" Width="130">
+                <DataGridTextColumn.ElementStyle>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="TextWrapping" Value="Wrap"/>
+                    </Style>
+                </DataGridTextColumn.ElementStyle>
+            </DataGridTextColumn>
+            <DataGridTextColumn Header="Ответственный" Binding="{Binding Employee.fio}" Width="105">
+                <DataGridTextColumn.ElementStyle>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="TextWrapping" Value="Wrap"/>
+                    </Style>
+                </DataGridTextColumn.ElementStyle>
+            </DataGridTextColumn>
+                <DataGridTextColumn Header="Статус" Binding="{Binding Status.title}" Width="80"/>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="ButtonEdit" Content="Редактировать" ToolTip="Нажмите, чтобы изменить данные" Click="ButtonEdit_Click" Width="Auto" ></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="lbCount" HorizontalAlignment="Left" Margin="260,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="Auto"/>
+    </Grid>
+</Page>
